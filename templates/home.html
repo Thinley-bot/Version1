@@ -1,0 +1,73 @@
+{% extends 'basic.html' %}
+{% block title %}Dzongkha Translation Tool
+{% endblock title %}
+{% block body %}
+<!--Main_content-->
+<div class="container">
+    <div class="wrapper">
+        <div class="text-input">
+            <textarea spellcheck="false" name="Dzongkha" id="Dzongkha" class="from-text"
+                placeholder="Enter text"></textarea>
+            <textarea spellcheck="false" name="English" id="English" disabled class="to-text"
+                placeholder="Translation"></textarea>
+        </div>
+        <ul class="controls">
+            <li class="row from">
+                <div class="icons">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <select>
+                    <option value="dzo-BT">Dzongkha</option>
+                </select>
+            </li>
+            <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+            <li class="row to">
+                <select>
+                    <option value="en-US">English</option>
+                </select>
+                <div class="icons">
+                    <i class="fas fa-copy"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button type="submit" class="btn" onclick="submit_entry()">
+        Translate
+    </button>
+</div>
+{% endblock body %}
+{% block js %}
+<!--Javascripts_FetchAPI-->
+<script>
+    async function submit_entry() {
+        const src = document.getElementById("Dzongkha");
+        const trg = document.getElementById("English");
+
+        const entry = {
+            text: src.value,
+        };
+        console.log(entry);
+
+        try {
+            const response = await fetch("/api", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(entry),
+                cache: "no-cache",
+            });
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            const value = Object.values(data);
+            trg.textContent = value;
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+</script>
+{% endblock js %}
