@@ -7,30 +7,20 @@
     <title>Dzongkha Translation Tool</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="shortcut icon" href="{{ url_for('static', filename='./img/logo.jpg') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
     <link rel="stylesheet" href="/static/style.css" />
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 
 <body>
-    <!--Header Section starts here-->
-    <header>
-        <nav id="nav">
-            <div class="logo">
-                <img src="{{ url_for('static', filename='./img/logo.jpg') }}" alt="nav_logo">
-                <h1>Dzongkha Translation Tool</h1>
-            </div>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!--Header Section Ends here-->
+    {% include "./navbar.html" %}
     {% block body %}
 
     {% endblock body %}
@@ -59,7 +49,7 @@
                     <li><i class="fa fa-fax" aria-hidden="true"></i> Contact webmaster: ict(at)dzongkha.gov.bt/
                         02-322662(124)
                     </li>
-                    <li><i class="fa fa-globe" aria-hidden="true"></i> www.dzongkha.gov.bt</li>
+                    <li><i class="fa fa-globe" aria-hidden="true"></i>www.dzongkha.gov.bt</li>
                 </ul>
             </div>
             <div class="ft-main-item">
@@ -75,11 +65,10 @@
         <!-- Footer social -->
         <section class="ft-social">
             <ul class="ft-social-list">
-                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/DzongkhaDevelopmentCommission"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li><a href="https://twitter.com/ddcbhutan?lang=en"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </section>
 

@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify, Response,render_template,json
 #initializing the flask application
 app = Flask(__name__)
 
+
 ## Define the file path to the model
 modelPath = MODEL_PATH
 
@@ -27,7 +28,7 @@ Dzo_stdlen = load_files(Dzo_length)
 def home():
 	return render_template('home.html')
 
-@app.route('/contact')
+@app.route('/contact.html')
 def contact():
     return render_template('contact.html')
 
